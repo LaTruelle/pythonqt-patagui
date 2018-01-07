@@ -1,5 +1,6 @@
-cmake_minimum_required (VERSION 3.9)
-project(PythonQt VERSION 3.2 DESCRIPTION "PythonQt: Embed Python within C++/Qt appplications")
+cmake_minimum_required (VERSION 3.0)
+project(PythonQt)
+# project(PythonQt VERSION 3.2 LANGUAGES CXX DESCRIPTION "PythonQt: Embed Python within C++/Qt appplications")
 
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -88,6 +89,6 @@ list(APPEND LIBRARIES ${PYTHON_LIBRARIES})
 # Define PythonQt library
 add_library(PythonQt SHARED ${PYTHONQT_SOURCES})
 target_link_libraries(PythonQt ${LIBRARIES})
-set_target_properties(PythonQt PROPERTIES VERSION ${PROJECT_VERSION})
-set_target_properties(PythonQt PROPERTIES PUBLIC_HEADER src/PythonQt.h)
+# set_target_properties(PythonQt PROPERTIES VERSION ${PROJECT_VERSION})
+# set_target_properties(PythonQt PROPERTIES PUBLIC_HEADER src/PythonQt.h)
 target_include_directories(PythonQt PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
