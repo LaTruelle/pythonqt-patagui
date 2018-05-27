@@ -78,6 +78,7 @@ list(APPEND QT_LIBRARIES ${Qt5Core_LIBRARIES} ${Qt5Widgets_LIBRARIES})
 list(APPEND LIBRARIES ${QT_LIBRARIES})
 
 # Find Python and link
+find_package(PythonInterp)
 find_package(PythonLibs 3.5 REQUIRED)
 add_definitions(
   -DPYTHONQT_USE_RELEASE_PYTHON_FALLBACK

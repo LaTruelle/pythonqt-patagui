@@ -43,14 +43,20 @@
 //----------------------------------------------------------------------------------
 
 #ifdef WIN32
-#ifdef PYTHONQT_EXPORTS
-#define PYTHONQT_EXPORT __declspec(dllexport)
+    #ifdef PYTHONQT_EXPORTS
+        #ifdef PYTHONQT_STATIC_LIB
+            #define PYTHONQT_EXPORT __declspec(dllexport)
+        #else
+            #define PYTHONQT_EXPORT
+        #endif
+    #else
+        #ifdef PYTHONQT_STATIC_LIB
+            #define PYTHONQT_EXPORT __declspec(dllimport)
+        #else
+            #define PYTHONQT_EXPORT
+        #endif
+    #endif
 #else
-#define PYTHONQT_EXPORT __declspec(dllimport)
+    #define PYTHONQT_EXPORT
 #endif
-#else
-#define PYTHONQT_EXPORT
 #endif
-
-#endif
-
